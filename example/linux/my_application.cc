@@ -7,7 +7,7 @@
 
 #include "flutter/generated_plugin_registrant.h"
 
-#include "desktop_multi_window/desktop_multi_window_plugin.h"
+#include "gtk_layer_shell/desktop_multi_window_plugin.h"
 #include "desktop_lifecycle/desktop_lifecycle_plugin.h"
 
 struct _MyApplication {

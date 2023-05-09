@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "include/desktop_multi_window/desktop_multi_window_plugin.h"
+#include "include/gtk_layer_shell/desktop_multi_window_plugin.h"
 #include "desktop_multi_window_plugin_internal.h"
 
 namespace {

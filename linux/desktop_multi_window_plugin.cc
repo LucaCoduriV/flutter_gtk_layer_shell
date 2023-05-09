@@ -1,4 +1,4 @@
-#include "include/desktop_multi_window/desktop_multi_window_plugin.h"
+#include "include/gtk_layer_shell/desktop_multi_window_plugin.h"
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
