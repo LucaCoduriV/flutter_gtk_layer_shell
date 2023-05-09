@@ -39,14 +39,14 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
           children: [
             TextButton(
               onPressed: () async {
-                final window =
+                final layer =
                     await DesktopMultiWindow.createLayerShell(jsonEncode({
                   'args1': 'Sub window',
                   'args2': 100,
                   'args3': true,
                   'business': 'business_test',
                 }));
-                window
+                layer
                   ..setFrame(const Offset(0, 0) & const Size(1280, 720))
                   ..center()
                   ..setTitle('Another window')

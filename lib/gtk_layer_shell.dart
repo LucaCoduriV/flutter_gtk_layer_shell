@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 import 'src/channels.dart';
+import 'src/layer_shell_controller.dart';
+import 'src/layer_shell_controller_impl.dart';
 import 'src/window_controller.dart';
 import 'src/window_controller_impl.dart';
 
@@ -36,14 +38,14 @@ class DesktopMultiWindow {
     return WindowControllerMainImpl(windowId!);
   }
 
-  static Future<WindowController> createLayerShell([String? arguments]) async {
+  static Future<LayerShellController> createLayerShell([String? arguments]) async {
     final windowId = await multiWindowChannel.invokeMethod<int>(
       'createLayerShell',
       arguments,
     );
     assert(windowId != null, 'windowId is null');
     assert(windowId! > 0, 'id must be greater than 0');
-    return WindowControllerMainImpl(windowId!);
+    return LayerShellControllerMainImpl(windowId!);
   }
 
   /// Invoke method on the isolate of the window.
