@@ -47,8 +47,7 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                   'business': 'business_test',
                 }));
                 layer
-                  ..setFrame(const Offset(0, 0) & const Size(1280, 720))
-                  ..center()
+                  ..setLayerSize(const Size(1280, 720))
                   ..setTitle('Another window')
                   ..show();
               },

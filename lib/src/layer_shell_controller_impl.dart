@@ -33,18 +33,11 @@ class LayerShellControllerMainImpl extends LayerShellController {
   }
 
   @override
-  Future<void> center() {
-    return _channel.invokeMethod('center', _id);
-  }
-
-  @override
-  Future<void> setFrame(Rect frame) {
-    return _channel.invokeMethod('setFrame', <String, dynamic>{
+  Future<void> setLayerSize(Size size) {
+    return _channel.invokeMethod('setLayerSize', <String, dynamic>{
       'windowId': _id,
-      'left': frame.left,
-      'top': frame.top,
-      'width': frame.width,
-      'height': frame.height,
+      'height': size.height,
+      'width': size.width,
     });
   }
 
@@ -56,19 +49,19 @@ class LayerShellControllerMainImpl extends LayerShellController {
     });
   }
 
-  @override
-  Future<void> resizable(bool resizable) {
-    if (Platform.isMacOS) {
-      return _channel.invokeMethod('resizable', <String, dynamic>{
-        'windowId': _id,
-        'resizable': resizable,
-      });
-    } else {
-      throw MissingPluginException(
-        'This functionality is only available on macOS',
-      );
-    }
-  }
+  // @override
+  // Future<void> resizable(bool resizable) {
+  //   if (Platform.isMacOS) {
+  //     return _channel.invokeMethod('resizable', <String, dynamic>{
+  //       'windowId': _id,
+  //       'resizable': resizable,
+  //     });
+  //   } else {
+  //     throw MissingPluginException(
+  //       'This functionality is only available on macOS',
+  //     );
+  //   }
+  // }
 
   @override
   Future<void> setFrameAutosaveName(String name) {
