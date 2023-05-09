@@ -62,7 +62,7 @@ abstract class LayerShellController {
   Future<int>	getMargin(LayerEdge edge);
   Future<void>	setExclusiveZone(int size);
   Future<int>	getExclusiveZone();
-  Future<void>	enableExclusiveZone();
+  Future<void>	enableAutoExclusiveZone();
   Future<bool>	autoExclusiveZoneIsEnabled();
   Future<void>	setKeyboardMode(LayerShellKeyboardMode mode);
   Future<LayerShellKeyboardMode> getKeyboardMode();

@@ -80,85 +80,102 @@ class LayerShellControllerMainImpl extends LayerShellController {
 
   @override
   Future<bool> autoExclusiveZoneIsEnabled() {
-    // TODO: implement autoExclusiveZoneIsEnabled
-    throw UnimplementedError();
+    return _channel.invokeMethod('autoExclusiveZoneIsEnabled', _id) as Future<bool>;
   }
 
   @override
-  Future<void> enableExclusiveZone() {
-    // TODO: implement enableExclusiveZone
-    throw UnimplementedError();
+  Future<void> enableAutoExclusiveZone() {
+    return _channel.invokeMethod(' enableAutoExclusiveZone', _id);
   }
 
   @override
   Future<bool> getAnchor(LayerEdge edge) {
-    // TODO: implement getAnchor
-    throw UnimplementedError();
+    return _channel.invokeMethod('getAnchor', <String, dynamic>{
+      'windowId': _id,
+      'edge': edge.toString(),
+    }) as Future<bool>;
   }
 
   @override
   Future<int> getExclusiveZone() {
-    // TODO: implement getExclusiveZone
-    throw UnimplementedError();
+    return _channel.invokeMethod('getExclusiveZone', _id) as Future<int>;
   }
 
   @override
   Future<bool> getKeyboardInteractivity(bool interactivity) {
-    // TODO: implement getKeyboardInteractivity
-    throw UnimplementedError();
+    return _channel.invokeMethod('getKeyboardInteractivity', <String, dynamic>{
+      'windowId': _id,
+      'interactivity': interactivity,
+    }) as Future<bool>;
   }
 
   @override
-  Future<LayerShellKeyboardMode> getKeyboardMode() {
-    // TODO: implement getKeyboardMode
-    throw UnimplementedError();
+  Future<LayerShellKeyboardMode> getKeyboardMode() async {
+    final response = await (_channel.invokeMethod('getKeyboardMode', _id) as Future<String>);
+    return LayerShellKeyboardMode.values.firstWhere((element) => element.toString() == response);
   }
 
   @override
-  Future<LayerSurface> getLayer() {
-    // TODO: implement getLayer
-    throw UnimplementedError();
+  Future<LayerSurface> getLayer() async {
+    final response = await (_channel.invokeMethod('getLayer', _id) as Future<String>);
+    return LayerSurface.values.firstWhere((element) => element.toString() == response);
   }
 
   @override
   Future<int> getMargin(LayerEdge edge) {
-    // TODO: implement getMargin
-    throw UnimplementedError();
+    return _channel.invokeMethod('getMargin', <String, dynamic>{
+      'windowId': _id,
+      'edge': edge.toString(),
+    }) as Future<int>;
   }
 
   @override
   Future<void> setAnchor(LayerEdge edge, bool anchor) {
-    // TODO: implement setAnchor
-    throw UnimplementedError();
+    return _channel.invokeMethod('setAnchor', <String, dynamic>{
+      'windowId': _id,
+      'edge': edge.toString(),
+      'anchor': anchor,
+    });
   }
 
   @override
   Future<void> setExclusiveZone(int size) {
-    // TODO: implement setExclusiveZone
-    throw UnimplementedError();
+    return _channel.invokeMethod('setExclusiveZone', <String, dynamic>{
+      'windowId': _id,
+      'size': size,
+    });
   }
 
   @override
   Future<void> setKeyboardInteractivity(bool interactivity) {
-    // TODO: implement setKeyboardInteractivity
-    throw UnimplementedError();
+    return _channel.invokeMethod('setKeyboardInteractivity', <String, dynamic>{
+      'windowId': _id,
+      'interactivity': interactivity,
+    });
   }
 
   @override
   Future<void> setKeyboardMode(LayerShellKeyboardMode mode) {
-    // TODO: implement setKeyboardMode
-    throw UnimplementedError();
+    return _channel.invokeMethod('setKeyboardMode', <String, dynamic>{
+      'windowId': _id,
+      'mode': mode.toString(),
+    });
   }
 
   @override
   Future<void> setLayer(LayerSurface layer) {
-    // TODO: implement setLayer
-    throw UnimplementedError();
+    return _channel.invokeMethod('setLayer', <String, dynamic>{
+      'windowId': _id,
+      'layer': layer.toString(),
+    });
   }
 
   @override
   Future<void> setMargin(LayerEdge edge, int margin) {
-    // TODO: implement setMargin
-    throw UnimplementedError();
+    return _channel.invokeMethod('setMargin', <String, dynamic>{
+      'windowId': _id,
+      'edge': edge.toString(),
+      'margin': margin,
+    });
   }
 }
