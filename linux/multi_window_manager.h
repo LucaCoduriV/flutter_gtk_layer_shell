@@ -42,6 +42,8 @@ class MultiWindowManager : public std::enable_shared_from_this<MultiWindowManage
 
   void SetTitle(int64_t id, const std::string &title);
 
+  void SetLayerShellAnchor(int64_t id, const std::string &edge, bool anchor);
+
   std::vector<int64_t> GetAllSubWindowIds();
 
   void OnWindowClose(int64_t id) override;

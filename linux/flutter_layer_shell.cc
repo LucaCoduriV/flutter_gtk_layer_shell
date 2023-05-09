@@ -5,7 +5,11 @@
 #include "flutter_layer_shell.h"
 #include <gtk-layer-shell/gtk-layer-shell.h>
 
+#include <cstdlib>
+#include <cstdio>
 #include <iostream>
+#include <cstring>
+#include <string>
 
 #include "include/gtk_layer_shell/desktop_multi_window_plugin.h"
 #include "desktop_multi_window_plugin_internal.h"
@@ -62,6 +66,18 @@ FlutterLayerShell::FlutterLayerShell(
 
 WindowChannel *FlutterLayerShell::GetWindowChannel() {
     return window_channel_.get();
+}
+
+void FlutterLayerShell::setAnchor(const std::string &edge, bool anchor) {
+    if (std::strcmp(edge.c_str(), "LayerEdge.left") == 0){
+        gtk_layer_set_anchor(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_LEFT, anchor);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.right") == 0){
+        gtk_layer_set_anchor(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_RIGHT, anchor);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.top") == 0){
+        gtk_layer_set_anchor(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_TOP, anchor);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.bottom") == 0){
+        gtk_layer_set_anchor(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_BOTTOM, anchor);
+    }
 }
 
 FlutterLayerShell::~FlutterLayerShell() = default;

@@ -9,6 +9,7 @@ import 'src/window_controller.dart';
 import 'src/window_controller_impl.dart';
 
 export 'src/window_controller.dart';
+export 'src/layer_shell_controller.dart';
 
 class DesktopMultiWindow {
   /// Create a new Window.

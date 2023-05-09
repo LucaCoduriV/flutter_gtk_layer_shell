@@ -78,7 +78,7 @@ class LayerShellControllerMainImpl extends LayerShellController {
 
   @override
   Future<void> enableAutoExclusiveZone() {
-    return _channel.invokeMethod(' enableAutoExclusiveZone', _id);
+    return _channel.invokeMethod('enableAutoExclusiveZone', _id);
   }
 
   @override
@@ -95,11 +95,8 @@ class LayerShellControllerMainImpl extends LayerShellController {
   }
 
   @override
-  Future<bool> getKeyboardInteractivity(bool interactivity) {
-    return _channel.invokeMethod('getKeyboardInteractivity', <String, dynamic>{
-      'windowId': _id,
-      'interactivity': interactivity,
-    }) as Future<bool>;
+  Future<bool> getKeyboardInteractivity() {
+    return _channel.invokeMethod('getKeyboardInteractivity', _id) as Future<bool>;
   }
 
   @override

@@ -64,7 +64,7 @@ abstract class LayerShellController {
   Future<void>	setKeyboardMode(LayerShellKeyboardMode mode);
   Future<LayerShellKeyboardMode> getKeyboardMode();
   Future<void>	setKeyboardInteractivity(bool interactivity);
-  Future<bool>	getKeyboardInteractivity(bool interactivity);
+  Future<bool>	getKeyboardInteractivity();
 }
 
 enum LayerShellKeyboardMode{

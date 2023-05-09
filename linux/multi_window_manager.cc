@@ -165,3 +165,12 @@ void MultiWindowManager::OnWindowDestroy(int64_t id) {
   windows_.erase(id);
 }
 
+// ----------------------- LAYER SHELL -----------------------
+
+void MultiWindowManager::SetLayerShellAnchor(int64_t id, const std::string& edge, bool anchor) {
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->setAnchor(edge, anchor);
+    }
+}

@@ -21,6 +21,8 @@ public:
 
     WindowChannel *GetWindowChannel() override;
 
+    void setAnchor(const std::string &edge, bool anchor);
+
 protected:
 
     GtkWindow *GetWindow() override {
