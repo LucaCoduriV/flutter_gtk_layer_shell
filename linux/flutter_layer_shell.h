@@ -13,18 +13,9 @@
 #include "flutter_window.h"
 #include "base_flutter_window.h"
 
-class FlutterLayerShellCallback {
-
-public:
-    virtual void OnWindowClose(int64_t id) = 0;
-
-    virtual void OnWindowDestroy(int64_t id) = 0;
-
-};
-
 class FlutterLayerShell : public BaseFlutterWindow {
 public:
-    FlutterLayerShell(int64_t id, const std::string &args, const std::shared_ptr <FlutterLayerShellCallback> &callback);
+    FlutterLayerShell(int64_t id, const std::string &args, const std::shared_ptr <FlutterWindowCallback> &callback);
 
     ~FlutterLayerShell() override;
 
@@ -38,7 +29,7 @@ protected:
 
 private:
 
-    std::weak_ptr <FlutterLayerShellCallback> callback_;
+    std::weak_ptr <FlutterWindowCallback> callback_;
 
     int64_t id_;
 

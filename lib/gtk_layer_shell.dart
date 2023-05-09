@@ -36,6 +36,16 @@ class DesktopMultiWindow {
     return WindowControllerMainImpl(windowId!);
   }
 
+  static Future<WindowController> createLayerShell([String? arguments]) async {
+    final windowId = await multiWindowChannel.invokeMethod<int>(
+      'createLayerShell',
+      arguments,
+    );
+    assert(windowId != null, 'windowId is null');
+    assert(windowId! > 0, 'id must be greater than 0');
+    return WindowControllerMainImpl(windowId!);
+  }
+
   /// Invoke method on the isolate of the window.
   ///
   /// Need use [setMethodHandler] in the target window isolate to handle the

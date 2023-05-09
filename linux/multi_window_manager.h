@@ -13,6 +13,7 @@
 
 #include "base_flutter_window.h"
 #include "flutter_window.h"
+#include "flutter_layer_shell.h"
 
 class MultiWindowManager : public std::enable_shared_from_this<MultiWindowManager>, public FlutterWindowCallback {
 
@@ -24,6 +25,8 @@ class MultiWindowManager : public std::enable_shared_from_this<MultiWindowManage
   virtual ~MultiWindowManager();
 
   int64_t Create(const std::string &args);
+
+  int64_t CreateLayerShell(const std::string &args);
 
   void AttachMainWindow(GtkWidget *main_flutter_window, std::unique_ptr<WindowChannel> window_channel);
 

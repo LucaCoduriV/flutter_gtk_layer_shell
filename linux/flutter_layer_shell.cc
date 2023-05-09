@@ -3,6 +3,7 @@
 //
 
 #include "flutter_layer_shell.h"
+#include <gtk-layer-shell/gtk-layer-shell.h>
 
 #include <iostream>
 
@@ -18,9 +19,10 @@ namespace {
 FlutterLayerShell::FlutterLayerShell(
         int64_t id,
         const std::string &args,
-        const std::shared_ptr<FlutterLayerShellCallback> &callback
+        const std::shared_ptr<FlutterWindowCallback> &callback
 ) : callback_(callback), id_(id) {
     window_ = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_layer_init_for_window(GTK_WINDOW(window_));
     gtk_window_set_default_size(GTK_WINDOW(window_), 1280, 720);
     gtk_window_set_title(GTK_WINDOW(window_), "");
     gtk_window_set_position(GTK_WINDOW(window_), GTK_WIN_POS_CENTER);
@@ -54,6 +56,7 @@ FlutterLayerShell::FlutterLayerShell(
     window_channel_ = WindowChannel::RegisterWithRegistrar(desktop_multi_window_registrar, id_);
 
     gtk_widget_grab_focus(GTK_WIDGET(fl_view));
+    gtk_widget_set_size_request (GTK_WIDGET(fl_view), 100, 100);
     gtk_widget_hide(GTK_WIDGET(window_));
 }
 

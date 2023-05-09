@@ -57,6 +57,21 @@ int64_t MultiWindowManager::Create(const std::string &args) {
   return id;
 }
 
+int64_t MultiWindowManager::CreateLayerShell(const std::string &args) {
+    g_next_id_++;
+    int64_t id = g_next_id_;
+    auto window = std::make_unique<FlutterLayerShell>(id, args, shared_from_this());
+    window->GetWindowChannel()->SetMethodHandler([this](int64_t from_window_id,
+                                                        int64_t target_window_id,
+                                                        const gchar *method,
+                                                        FlValue *arguments,
+                                                        FlMethodCall *method_call) {
+        HandleMethodCall(from_window_id, target_window_id, method, arguments, method_call);
+    });
+    windows_[id] = std::move(window);
+    return id;
+}
+
 void MultiWindowManager::AttachMainWindow(GtkWidget *main_flutter_window,
                                           std::unique_ptr<WindowChannel> window_channel) {
   if (windows_.count(0) != 0) {

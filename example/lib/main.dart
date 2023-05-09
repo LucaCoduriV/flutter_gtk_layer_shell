@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:desktop_lifecycle/desktop_lifecycle.dart';
 import 'package:gtk_layer_shell/gtk_layer_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_window_example/event_widget.dart';
@@ -41,7 +40,7 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
             TextButton(
               onPressed: () async {
                 final window =
-                    await DesktopMultiWindow.createWindow(jsonEncode({
+                    await DesktopMultiWindow.createLayerShell(jsonEncode({
                   'args1': 'Sub window',
                   'args2': 100,
                   'args3': true,
@@ -103,16 +102,6 @@ class _ExampleSubWindow extends StatelessWidget {
                 'Arguments: ${args.toString()}',
                 style: const TextStyle(fontSize: 20),
               ),
-            ValueListenableBuilder<bool>(
-              valueListenable: DesktopLifecycle.instance.isActive,
-              builder: (context, active, child) {
-                if (active) {
-                  return const Text('Window Active');
-                } else {
-                  return const Text('Window Inactive');
-                }
-              },
-            ),
             TextButton(
               onPressed: () async {
                 windowController.close();

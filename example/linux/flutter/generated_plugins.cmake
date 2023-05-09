@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  desktop_lifecycle
   gtk_layer_shell
 )
 

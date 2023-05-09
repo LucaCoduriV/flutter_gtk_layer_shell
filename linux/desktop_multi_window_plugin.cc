@@ -31,7 +31,12 @@ static void desktop_multi_window_plugin_handle_method_call(
     auto *arguments = fl_value_get_string(args);
     auto window = MultiWindowManager::Instance()->Create(arguments);
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_int(window)));
-  } else if (strcmp(method, "show") == 0) {
+  } else if(strcmp(method, "createLayerShell") == 0) {
+    auto *args = fl_method_call_get_args(method_call);
+    auto *arguments = fl_value_get_string(args);
+    auto window = MultiWindowManager::Instance()->CreateLayerShell(arguments);
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_int(window)));
+  }else if (strcmp(method, "show") == 0) {
     auto *args = fl_method_call_get_args(method_call);
     auto window_id = fl_value_get_int(args);
     MultiWindowManager::Instance()->Show(window_id);
