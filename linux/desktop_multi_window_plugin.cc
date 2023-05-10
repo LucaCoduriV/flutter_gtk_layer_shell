@@ -88,9 +88,10 @@ static void desktop_multi_window_plugin_handle_method_call(
 //        auto window_id = fl_value_get_int(args);
         response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
     } else if (strcmp(method, "enableAutoExclusiveZone") == 0) {
-//        auto *args = fl_method_call_get_args(method_call);
-//        auto window_id = fl_value_get_int(args);
-        response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+        auto *args = fl_method_call_get_args(method_call);
+        auto window_id = fl_value_get_int(args);
+        MultiWindowManager::Instance()->EnableAutoExclusiveZone(window_id);
+        response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
     } else if (strcmp(method, "getAnchor") == 0) {
 //        auto *args = fl_method_call_get_args(method_call);
 //        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
@@ -146,11 +147,12 @@ static void desktop_multi_window_plugin_handle_method_call(
 //        auto layer = fl_value_get_string(fl_value_lookup_string(args, "layer"));
         response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
     } else if (strcmp(method, "setMargin") == 0) {
-//        auto *args = fl_method_call_get_args(method_call);
-//        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
-//        auto edge = fl_value_get_string(fl_value_lookup_string(args, "edge"));
-//        auto margin = fl_value_get_int(fl_value_lookup_string(args, "margin"));
-        response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+        auto *args = fl_method_call_get_args(method_call);
+        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
+        auto edge = fl_value_get_string(fl_value_lookup_string(args, "edge"));
+        auto margin = fl_value_get_int(fl_value_lookup_string(args, "margin"));
+        MultiWindowManager::Instance()->SetLayerShellMargin(window_id, edge, margin);
+        response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
     } else {
         response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
     }

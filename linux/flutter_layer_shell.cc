@@ -80,6 +80,22 @@ void FlutterLayerShell::setAnchor(const std::string &edge, bool anchor) {
     }
 }
 
+void FlutterLayerShell::enableAutoExclusiveZone() {
+    gtk_layer_auto_exclusive_zone_enable(GTK_WINDOW(window_));
+}
+
+void FlutterLayerShell::setMargin(const std::string &edge, int margin) {
+    if (std::strcmp(edge.c_str(), "LayerEdge.left") == 0){
+        gtk_layer_set_margin(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_LEFT, margin);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.right") == 0){
+        gtk_layer_set_margin(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_RIGHT, margin);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.top") == 0){
+        gtk_layer_set_margin(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_TOP, margin);
+    } else if (std::strcmp(edge.c_str(), "LayerEdge.bottom") == 0){
+        gtk_layer_set_margin(GTK_WINDOW(window_), GTK_LAYER_SHELL_EDGE_BOTTOM, margin);
+    }
+}
+
 FlutterLayerShell::~FlutterLayerShell() = default;
 
 void desktop_multi_window_plugin_set_layer_shell_created_callback(WindowCreatedCallback callback) {

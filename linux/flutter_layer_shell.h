@@ -22,6 +22,8 @@ public:
     WindowChannel *GetWindowChannel() override;
 
     void setAnchor(const std::string &edge, bool anchor);
+    void enableAutoExclusiveZone();
+    void setMargin(const std::string &edge, int margin);
 
 protected:
 

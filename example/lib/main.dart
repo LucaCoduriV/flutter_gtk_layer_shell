@@ -51,6 +51,8 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                   ..setTitle('Another window')
                   ..setAnchor(LayerEdge.right, true)
                   ..setAnchor(LayerEdge.top, true)
+                  ..enableAutoExclusiveZone()
+                  ..setMargin(LayerEdge.right, 10)
                   ..show();
               },
               child: const Text('Create a new World!'),

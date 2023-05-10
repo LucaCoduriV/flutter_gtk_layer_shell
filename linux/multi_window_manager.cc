@@ -174,3 +174,19 @@ void MultiWindowManager::SetLayerShellAnchor(int64_t id, const std::string& edge
         layer->setAnchor(edge, anchor);
     }
 }
+
+void MultiWindowManager::EnableAutoExclusiveZone(int64_t id) {
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->enableAutoExclusiveZone();
+    }
+}
+
+void MultiWindowManager::SetLayerShellMargin(int64_t id, const std::string &edge, int margin){
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->setMargin(edge, margin);
+    }
+}
