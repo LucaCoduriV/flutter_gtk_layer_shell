@@ -24,6 +24,7 @@ public:
     void setAnchor(const std::string &edge, bool anchor);
     void enableAutoExclusiveZone();
     void setMargin(const std::string &edge, int margin);
+    void setLayer(const std::string &layer);
 
 protected:
 

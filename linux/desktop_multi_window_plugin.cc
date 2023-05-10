@@ -142,10 +142,11 @@ static void desktop_multi_window_plugin_handle_method_call(
 //        auto mode = fl_value_get_string(fl_value_lookup_string(args, "mode"));
         response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
     } else if (strcmp(method, "setLayer") == 0) {
-//        auto *args = fl_method_call_get_args(method_call);
-//        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
-//        auto layer = fl_value_get_string(fl_value_lookup_string(args, "layer"));
-        response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+        auto *args = fl_method_call_get_args(method_call);
+        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
+        auto layer = fl_value_get_string(fl_value_lookup_string(args, "layer"));
+        MultiWindowManager::Instance()->SetLayerShellLayer(window_id, layer);
+        response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
     } else if (strcmp(method, "setMargin") == 0) {
         auto *args = fl_method_call_get_args(method_call);
         auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));

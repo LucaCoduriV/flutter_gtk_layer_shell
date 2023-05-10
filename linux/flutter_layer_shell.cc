@@ -96,6 +96,18 @@ void FlutterLayerShell::setMargin(const std::string &edge, int margin) {
     }
 }
 
+void FlutterLayerShell::setLayer(const std::string &layer) {
+    if (std::strcmp(layer.c_str(), "LayerSurface.background") == 0){
+        gtk_layer_set_layer(GTK_WINDOW(window_), GTK_LAYER_SHELL_LAYER_BACKGROUND);
+    } else if (std::strcmp(layer.c_str(), "LayerSurface.bottom") == 0){
+        gtk_layer_set_layer(GTK_WINDOW(window_), GTK_LAYER_SHELL_LAYER_BOTTOM);
+    } else if (std::strcmp(layer.c_str(), "LayerSurface.top") == 0){
+        gtk_layer_set_layer(GTK_WINDOW(window_), GTK_LAYER_SHELL_LAYER_TOP);
+    } else if (std::strcmp(layer.c_str(), "LayerSurface.overlay") == 0){
+        gtk_layer_set_layer(GTK_WINDOW(window_), GTK_LAYER_SHELL_LAYER_OVERLAY);
+    }
+}
+
 FlutterLayerShell::~FlutterLayerShell() = default;
 
 void desktop_multi_window_plugin_set_layer_shell_created_callback(WindowCreatedCallback callback) {

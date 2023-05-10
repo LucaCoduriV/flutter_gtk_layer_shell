@@ -190,3 +190,11 @@ void MultiWindowManager::SetLayerShellMargin(int64_t id, const std::string &edge
         layer->setMargin(edge, margin);
     }
 }
+
+void MultiWindowManager::SetLayerShellLayer(int64_t id, const std::string &layerSurface) {
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->setLayer(layerSurface);
+    }
+}
