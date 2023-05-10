@@ -25,6 +25,8 @@ public:
     void enableAutoExclusiveZone();
     void setMargin(const std::string &edge, int margin);
     void setLayer(const std::string &layer);
+    void setExclusiveZone(int zone);
+    void setSize(int width, int height);
 
 protected:
 

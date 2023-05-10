@@ -47,13 +47,14 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                   'business': 'business_test',
                 }));
                 layer
-                  // ..setLayerSize(const Size(1280, 720))
+                  ..setLayerSize(const Size(500, 150))
                   ..setTitle('Another window')
                   ..setAnchor(LayerEdge.right, true)
                   ..setAnchor(LayerEdge.top, true)
                   ..enableAutoExclusiveZone()
                   ..setMargin(LayerEdge.right, 10)
                   ..setLayer(LayerSurface.top)
+                  ..setExclusiveZone(10)
                   ..show();
               },
               child: const Text('Create a new World!'),

@@ -78,11 +78,12 @@ static void desktop_multi_window_plugin_handle_method_call(
         response = FL_METHOD_RESPONSE(fl_method_success_response_new(
                 fl_value_new_int64_list(window_ids.data(), window_ids.size())));
     } else if (strcmp(method, "setLayerSize") == 0) {
-//        auto *args = fl_method_call_get_args(method_call);
-//        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
-//        auto height = fl_value_get_int(fl_value_lookup_string(args, "height"));
-//        auto width = fl_value_get_int(fl_value_lookup_string(args, "width"));
-        response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+        auto *args = fl_method_call_get_args(method_call);
+        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
+        auto height = fl_value_get_float(fl_value_lookup_string(args, "height"));
+        auto width = fl_value_get_float(fl_value_lookup_string(args, "width"));
+        MultiWindowManager::Instance()->SetLayerShellSize(window_id, width, height);
+        response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
     } else if (strcmp(method, "autoExclusiveZoneIsEnabled") == 0) {
 //        auto *args = fl_method_call_get_args(method_call);
 //        auto window_id = fl_value_get_int(args);
@@ -127,10 +128,11 @@ static void desktop_multi_window_plugin_handle_method_call(
         response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
 
     } else if (strcmp(method, "setExclusiveZone") == 0) {
-//        auto *args = fl_method_call_get_args(method_call);
-//        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
-//        auto size = fl_value_get_int(fl_value_lookup_string(args, "size"));
-        response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+        auto *args = fl_method_call_get_args(method_call);
+        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));
+        auto size = fl_value_get_int(fl_value_lookup_string(args, "size"));
+        MultiWindowManager::Instance()->SetLayerShellExclusiveZone(window_id, size);
+        response = FL_METHOD_RESPONSE(fl_method_success_response_new(nullptr));
     } else if (strcmp(method, "setKeyboardInteractivity") == 0) {
 //        auto *args = fl_method_call_get_args(method_call);
 //        auto window_id = fl_value_get_int(fl_value_lookup_string(args, "windowId"));

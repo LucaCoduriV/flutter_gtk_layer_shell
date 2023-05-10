@@ -27,7 +27,7 @@ FlutterLayerShell::FlutterLayerShell(
 ) : callback_(callback), id_(id) {
     window_ = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_layer_init_for_window(GTK_WINDOW(window_));
-    gtk_window_set_default_size(GTK_WINDOW(window_), 1280, 720);
+//    gtk_window_set_default_size(GTK_WINDOW(window_), 1280, 720);
     gtk_window_set_title(GTK_WINDOW(window_), "");
     gtk_window_set_position(GTK_WINDOW(window_), GTK_WIN_POS_CENTER);
     gtk_widget_show(GTK_WIDGET(window_));
@@ -106,6 +106,14 @@ void FlutterLayerShell::setLayer(const std::string &layer) {
     } else if (std::strcmp(layer.c_str(), "LayerSurface.overlay") == 0){
         gtk_layer_set_layer(GTK_WINDOW(window_), GTK_LAYER_SHELL_LAYER_OVERLAY);
     }
+}
+
+void FlutterLayerShell::setSize(int width, int height) {
+    gtk_widget_set_size_request (GTK_WIDGET(window_), width, height);
+}
+
+void FlutterLayerShell::setExclusiveZone(int zone) {
+    gtk_layer_set_exclusive_zone(GTK_WINDOW(window_), zone);
 }
 
 FlutterLayerShell::~FlutterLayerShell() = default;

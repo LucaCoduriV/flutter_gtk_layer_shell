@@ -52,6 +52,8 @@ class MultiWindowManager : public std::enable_shared_from_this<MultiWindowManage
   void EnableAutoExclusiveZone(int64_t id);
   void SetLayerShellMargin(int64_t id, const std::string &edge, int margin);
   void SetLayerShellLayer(int64_t id, const std::string &layerSurface);
+  void SetLayerShellExclusiveZone(int64_t id, int zone);
+  void SetLayerShellSize(int64_t id, int width, int height);
 
  private:
 

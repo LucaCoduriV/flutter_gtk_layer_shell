@@ -198,3 +198,19 @@ void MultiWindowManager::SetLayerShellLayer(int64_t id, const std::string &layer
         layer->setLayer(layerSurface);
     }
 }
+
+void MultiWindowManager::SetLayerShellExclusiveZone(int64_t id, int zone) {
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->setExclusiveZone(zone);
+    }
+}
+
+void MultiWindowManager::SetLayerShellSize(int64_t id, int width, int height) {
+    auto window = windows_.find(id);
+    if (window != windows_.end()) {
+        auto layer = dynamic_cast<FlutterLayerShell *>(window->second.get());
+        layer->setSize(width, height);
+    }
+}
