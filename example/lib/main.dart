@@ -94,27 +94,27 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                 child: TextButton(
                   onPressed: () async {
                     final window =
-                        await DesktopMultiWindow.createWindow(jsonEncode({
+                        await DesktopMultiWindow.createLayerShell(jsonEncode({
                       'args1': 'Sub window',
                       'args2': 100,
                       'args3': true,
                       'bussiness': 'bussiness_test',
                     }));
-                    window
-                      ..setFrame(const Offset(0, 0) & const Size(1280, 720))
-                      ..center()
-                      ..setTitle('Another window')
-                      ..startResizing
-                      ..hide();
-
                     // window
-                    //   ..setLayerSize(const Size(500, 150))
-                    //   ..setTitle('Another window 2')
-                    //   ..setAnchor(LayerEdge.right, true)
-                    //   ..setAnchor(LayerEdge.top, true)
-                    //   ..setMargin(LayerEdge.right, 10)
-                    //   ..setLayer(LayerSurface.overlay)
-                    //   ..show();
+                    //   ..setFrame(const Offset(0, 0) & const Size(1280, 720))
+                    //   ..center()
+                    //   ..setTitle('Another window')
+                    //   ..startResizing
+                    //   ..hide();
+
+                    window
+                      ..setLayerSize(const Size(500, 150))
+                      ..setTitle('Another window 2')
+                      ..setAnchor(LayerEdge.right, true)
+                      ..setAnchor(LayerEdge.top, true)
+                      ..setMargin(LayerEdge.right, 10)
+                      ..setLayer(LayerSurface.overlay)
+                      ..show();
                   },
                   child: const Text('Create a new World!'),
                 ),
