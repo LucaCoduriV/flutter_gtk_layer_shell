@@ -18,18 +18,30 @@ dependencies:
   flutter:
     sdk: flutter
 
-  multi_gtk_window:
+  desktop_multi_window:
     # When depending on this package from a real application you should use:
     #   flutter_multi_window: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
     # The example app is bundled with the plugin so we use a path dependency on
     # the parent directory to use the current plugin's version.
     path: ../
+  window_manager:
+    git:
+      url: https://github.com/Kingtous/rustdesk_window_manager
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  window_manager: ^0.3.2
+  # desktop_lifecycle: ^0.1.0
+  url_launcher:
+  # tray_manager:
+  # window_manager: ^0.2.7
+  texture_rgba_renderer:
+  # window_size:
+  #   git:
+  #       url: https://github.com/google/flutter-desktop-embedding.git
+  #       path: plugins/window_size
+  #       ref: a738913c8ce2c9f47515382d40827e794a334274
 
 dev_dependencies:
   flutter_test:

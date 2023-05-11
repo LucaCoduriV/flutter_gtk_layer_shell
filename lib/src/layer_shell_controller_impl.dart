@@ -7,7 +7,7 @@ import 'channels.dart';
 import 'layer_shell_controller.dart';
 
 class LayerShellControllerMainImpl extends LayerShellController {
-  final MethodChannel _channel = multiWindowChannel;
+  final MethodChannel _channel = miltiWindowChannel;
 
   // the id of this window
   final int _id;

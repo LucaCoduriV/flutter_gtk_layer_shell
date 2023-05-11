@@ -14,40 +14,59 @@
 
 #include "base_flutter_window.h"
 
-class FlutterWindowCallback {
+class FlutterWindowCallback
+{
 
- public:
+public:
   virtual void OnWindowClose(int64_t id) = 0;
 
   virtual void OnWindowDestroy(int64_t id) = 0;
-
 };
 
-class FlutterWindow : public BaseFlutterWindow {
+class FlutterWindow : public BaseFlutterWindow
+{
 
- public:
-
+public:
+    FlutterWindow() = default;
   FlutterWindow(int64_t id, const std::string &args, const std::shared_ptr<FlutterWindowCallback> &callback);
   ~FlutterWindow() override;
 
   WindowChannel *GetWindowChannel() override;
 
- protected:
-
-  GtkWindow *GetWindow() override {
-    return GTK_WINDOW(window_);
-  }
-
- private:
+  int64_t GetId();
 
   std::weak_ptr<FlutterWindowCallback> callback_;
 
-  int64_t id_;
+  int64_t id_ = 0;
 
   GtkWidget *window_ = nullptr;
 
   std::unique_ptr<WindowChannel> window_channel_;
 
+  gulong pressedEmissionHook = 0;
+
+protected:
+  GtkWindow *GetWindow() override
+  {
+    return GTK_WINDOW(window_);
+  }
 };
 
-#endif //DESKTOP_MULTI_WINDOW_WINDOWS_FLUTTER_WINDOW_H_
+gboolean onWindowStateChange(GtkWidget *widget,
+                             GdkEventWindowState *event,
+                             gpointer data);
+
+gboolean onWindowFocus(GtkWidget *widget, GdkEvent *event, gpointer data);
+
+gboolean onWindowBlur(GtkWidget *widget, GdkEvent *event, gpointer data);
+
+gboolean onWindowResize(GtkWidget *widget, gpointer data);
+
+gboolean onWindowShow(GtkWidget *widget, gpointer data);
+
+gboolean onWindowHide(GtkWidget *widget, gpointer data);
+
+gboolean onWindowMove(GtkWidget *widget, GdkEvent *event, gpointer data);
+
+gboolean onWindowClose(GtkWidget *widget, GdkEvent *event, gpointer arg);
+#endif // DESKTOP_MULTI_WINDOW_WINDOWS_FLUTTER_WINDOW_H_

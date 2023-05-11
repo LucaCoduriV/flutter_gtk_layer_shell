@@ -1,19 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
-set(PROJECT_NAME "multi_gtk_window")
+set(PROJECT_NAME "desktop_multi_window")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed
-set(PLUGIN_NAME "multi_gtk_window_plugin")
+set(PLUGIN_NAME "desktop_multi_window_plugin")
 
 add_library(${PLUGIN_NAME} SHARED
   "desktop_multi_window_plugin.cc"
   "multi_window_manager.cc"
   "flutter_window.cc"
   "base_flutter_window.cc"
-  "window_channel.cc"
-  "flutter_layer_shell.cc"
-)
+  "window_channel.cc" layer_surface.cpp layer_surface.h)
 apply_standard_settings(${PLUGIN_NAME})
 set_target_properties(${PLUGIN_NAME} PROPERTIES
   CXX_VISIBILITY_PRESET hidden)
@@ -28,7 +26,7 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GLS)
 
 # List of absolute paths to libraries that should be bundled with the plugin
-set(multi_gtk_window_libraries
+set(desktop_multi_window_bundled_libraries
   ""
   PARENT_SCOPE
 )

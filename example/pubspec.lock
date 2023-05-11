@@ -45,10 +45,17 @@ packages:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      sha256: "1989d917fbe8e6b39806207df5a3fdd3d816cbd090fac2ce26fb45e9a71476e5"
+      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
+  desktop_multi_window:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.1.0"
   fake_async:
     dependency: transitive
     description:
@@ -72,6 +79,11 @@ packages:
     version: "1.0.4"
   flutter_test:
     dependency: "direct dev"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -115,13 +127,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
-  multi_gtk_window:
-    dependency: "direct main"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "0.1.0"
   path:
     dependency: transitive
     description:
@@ -130,14 +135,23 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      sha256: "6a2128648c854906c53fa8e33986fc0247a1116122f9534dd20e3ab9e16a32bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.4"
   screen_retriever:
     dependency: transitive
     description:
-      name: screen_retriever
-      sha256: "4931f226ca158123ccd765325e9fbf360bfed0af9b460a10f960f9bb13d58323"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.6"
+      path: "."
+      ref: "406b9b0"
+      resolved-ref: "406b9b038b2c1d779f1e7bf609c8c248be247372"
+      url: "https://github.com/Kingtous/rustdesk_screen_retriever.git"
+    source: git
+    version: "0.1.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -191,6 +205,78 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  texture_rgba_renderer:
+    dependency: "direct main"
+    description:
+      name: texture_rgba_renderer
+      sha256: cb048abdd800468ca40749ca10d1db9d1e6a055d1cde6234c05191293f0c7d61
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.16"
+  url_launcher:
+    dependency: "direct main"
+    description:
+      name: url_launcher
+      sha256: eb1e00ab44303d50dd487aab67ebc575456c146c6af44422f9c13889984c00f3
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.11"
+  url_launcher_android:
+    dependency: transitive
+    description:
+      name: url_launcher_android
+      sha256: "22f8db4a72be26e9e3a4aa3f194b1f7afbc76d20ec141f84be1d787db2155cbd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.31"
+  url_launcher_ios:
+    dependency: transitive
+    description:
+      name: url_launcher_ios
+      sha256: "9af7ea73259886b92199f9e42c116072f05ff9bea2dcb339ab935dfc957392c2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.4"
+  url_launcher_linux:
+    dependency: transitive
+    description:
+      name: url_launcher_linux
+      sha256: "207f4ddda99b95b4d4868320a352d374b0b7e05eefad95a4a26f57da413443f5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      sha256: "91ee3e75ea9dadf38036200c5d3743518f4a5eb77a8d13fda1ee5764373f185e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
+  url_launcher_platform_interface:
+    dependency: transitive
+    description:
+      name: url_launcher_platform_interface
+      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
+  url_launcher_web:
+    dependency: transitive
+    description:
+      name: url_launcher_web
+      sha256: "81fe91b6c4f84f222d186a9d23c73157dc4c8e1c71489c4d08be1ad3b228f1aa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.16"
+  url_launcher_windows:
+    dependency: transitive
+    description:
+      name: url_launcher_windows
+      sha256: "254708f17f7c20a9c8c471f67d86d76d4a3f9c1591aad1e15292008aceb82771"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.6"
   vector_math:
     dependency: transitive
     description:
@@ -202,11 +288,12 @@ packages:
   window_manager:
     dependency: "direct main"
     description:
-      name: window_manager
-      sha256: "2b2572442b2a5178642730442dc625ac088244f5827b1f0811371b1b7485eb62"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.2"
+      path: "."
+      ref: HEAD
+      resolved-ref: "94ff0eeb7e20e93f50022b2090f0b6ffb725c7df"
+      url: "https://github.com/Kingtous/rustdesk_window_manager"
+    source: git
+    version: "0.3.1"
 sdks:
   dart: ">=2.18.0 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.3.0"
