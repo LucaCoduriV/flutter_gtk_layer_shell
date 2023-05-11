@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
-set(PROJECT_NAME "gtk_layer_shell")
+set(PROJECT_NAME "multi_gtk_window")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed
-set(PLUGIN_NAME "gtk_layer_shell_plugin")
+set(PLUGIN_NAME "multi_gtk_window_plugin")
 
 add_library(${PLUGIN_NAME} SHARED
   "desktop_multi_window_plugin.cc"
@@ -28,7 +28,7 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GLS)
 
 # List of absolute paths to libraries that should be bundled with the plugin
-set(desktop_multi_window_bundled_libraries
+set(multi_gtk_window_libraries
   ""
   PARENT_SCOPE
 )

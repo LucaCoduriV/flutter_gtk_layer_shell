@@ -7,7 +7,7 @@
 
 #include "flutter/generated_plugin_registrant.h"
 
-#include "gtk_layer_shell/desktop_multi_window_plugin.h"
+#include "multi_gtk_window/desktop_multi_window_plugin.h"
 
 struct _MyApplication {
   GtkApplication parent_instance;

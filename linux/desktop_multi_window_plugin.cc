@@ -1,4 +1,4 @@
-#include "include/gtk_layer_shell/desktop_multi_window_plugin.h"
+#include "include/multi_gtk_window/desktop_multi_window_plugin.h"
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
@@ -16,8 +16,7 @@ struct _DesktopMultiWindowPlugin {
     GObject parent_instance;
 };
 
-G_DEFINE_TYPE(DesktopMultiWindowPlugin, desktop_multi_window_plugin, g_object_get_type()
-)
+G_DEFINE_TYPE(DesktopMultiWindowPlugin, desktop_multi_window_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
 static void desktop_multi_window_plugin_handle_method_call(

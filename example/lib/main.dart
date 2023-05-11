@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:gtk_layer_shell/gtk_layer_shell.dart';
+import 'package:multi_gtk_window/multi_gtk_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_window_example/event_widget.dart';
 
@@ -32,6 +32,7 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+      backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
@@ -51,10 +52,8 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                   ..setTitle('Another window')
                   ..setAnchor(LayerEdge.right, true)
                   ..setAnchor(LayerEdge.top, true)
-                  ..enableAutoExclusiveZone()
                   ..setMargin(LayerEdge.right, 10)
-                  ..setLayer(LayerSurface.top)
-                  ..setExclusiveZone(10)
+                  ..setLayer(LayerSurface.overlay)
                   ..show();
               },
               child: const Text('Create a new World!'),
@@ -97,6 +96,7 @@ class _ExampleSubWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+      backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),

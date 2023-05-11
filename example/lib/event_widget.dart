@@ -1,4 +1,4 @@
-import 'package:gtk_layer_shell/gtk_layer_shell.dart';
+import 'package:multi_gtk_window/multi_gtk_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
