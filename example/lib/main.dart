@@ -28,7 +28,7 @@ void main(List<String> args) async {
       args: argument,
     ));
   } else {
-    windowManager.ensureInitialized();
+    await windowManager.ensureInitialized();
     WindowOptions windowOptions = WindowOptions(
       size: Size(800, 600),
       center: true,
@@ -37,7 +37,6 @@ void main(List<String> args) async {
       titleBarStyle: TitleBarStyle.hidden,
     );
     windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.show();
       await windowManager.focus();
     });
     runApp(const _ExampleMainWindow());
@@ -105,7 +104,7 @@ class _ExampleMainWindowState extends State<_ExampleMainWindow> {
                     //   ..center()
                     //   ..setTitle('Another window')
                     //   ..startResizing
-                    //   ..hide();
+                    //   ..show();
 
                     window
                       ..setLayerSize(const Size(500, 150))

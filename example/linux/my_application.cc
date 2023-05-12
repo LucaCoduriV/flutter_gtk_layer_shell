@@ -8,6 +8,7 @@
 #include "flutter/generated_plugin_registrant.h"
 
 #include "desktop_multi_window/desktop_multi_window_plugin.h"
+#include <gtk-layer-shell/gtk-layer-shell.h>
 //#include "window_manager/window_manager_plugin.h"
 
 struct _MyApplication {
@@ -51,6 +52,8 @@ static void my_application_activate(GApplication* application) {
   }
   gtk_window_set_decorated(window, TRUE);
   gtk_window_set_default_size(window, 1280, 720);
+  gtk_layer_init_for_window(GTK_WINDOW(window));
+  gtk_widget_set_size_request (GTK_WIDGET(window), 1280, 720);
   gtk_widget_realize(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
