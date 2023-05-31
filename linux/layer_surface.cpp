@@ -167,7 +167,7 @@ void LayerSurface::setLayer(const std::string &layer) {
 
 void LayerSurface::setSize(int width, int height) {
     gtk_widget_set_size_request (GTK_WIDGET(window_), width, height);
-    gtk_window_resize(GTK_WIDGET(window_), 1, 1);
+    gtk_window_resize(GTK_WINDOW(window_), width, height);
 }
 
 void LayerSurface::setExclusiveZone(int zone) {
